@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "bfv",
+    "traits"
+]

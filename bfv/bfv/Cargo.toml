@@ -1,0 +1,60 @@
+[package]
+name = "bfv"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+num-bigint-dig = {version = "0.8.2", features = ["prime"]}
+rand = "0.8.5"
+ndarray = {version = "0.15.6"}
+itertools = "0.10.5"
+num-bigint = {version= "0.4.3", features = ["rand"]}
+num-traits = "0.2.15"
+crypto-bigint = "0.4.9"
+rand_chacha = "0.3.1"
+seq-macro = "0.3"
+hexl-rs = {git = "https://github.com/Janmajayamall/hexl-rs.git", optional = true}
+prost = {version = "0.11", optional = true}
+concrete-ntt = {version= "0.1.0", default-features = false}
+traits = {path = "./../traits"}
+
+[dev-dependencies]
+criterion = "0.4"
+
+[build-dependencies]
+prost-build = {version = "0.11.9", optional = true}
+
+[features]
+default = ["std"]
+std = ["concrete-ntt/std"]
+nightly = ["concrete-ntt/nightly"]
+hexl = ["hexl-rs"]
+hexl-ntt = ["hexl-rs"]
+serialize = ["prost", "prost-build"]
+
+[[bench]]
+name = "modulus"
+harness = false
+
+[[bench]]
+name = "poly"
+harness = false
+
+[[bench]]
+name = "bfv"
+harness = false
+
+[[bench]]
+name = "ntt"
+harness = false
+
+[[example]]
+name = "basic-ops"
+path = "./examples/basic-ops.rs"
+
+[[example]]
+name = "rotations"
+path = "./examples/rotations.rs"
