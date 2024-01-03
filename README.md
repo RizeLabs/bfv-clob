@@ -7,9 +7,9 @@ for encrypted orders. We used [bfv](https://github.com/Janmajayamall/bfv) and [o
 
 1. Define `buy` and `sell` orders [here](https://github.com/Banana-Wallet/bfv-clob/blob/main/private-clob/order.json)
 2. Build project by running `cargo build` in `bfv`, `caird/operators` and `private-clob` directories. As the algorithm uses `bfv` and `operators` library and apis.
-3. Run the matching algorithm using `cargo run` in `private-clob` directory. For you convenience some sample orders has been already defined in `order.json`.
+3. Run the matching algorithm using `cargo run` in `private-clob` directory. For your convenience some sample orders has been already defined in `order.json`.
 
 ## 📝 Interpretation 
 
-On successfull execution of the algorithm you'll see two arrays buy and sell array. In which non-zero element conveys order settlement and zero elements indicates that the order can't be fullfilled.
+On successfull execution of the algorithm you'll see two arrays buy and sell array. In which non-zero element conveys order settlement and zero element indicates that the order can't be fullfilled.
 
