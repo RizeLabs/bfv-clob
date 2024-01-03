@@ -153,7 +153,7 @@ fn main() {
         // let filled_order = univariate_less_than(&evaluator, order, &sum_sell_orders_temp, &ek, &sk);
         // is order < sum_sell_orders_temp
         let is_less_encrypted =
-            univariate_less_than(&evaluator, order, &sum_sell_orders_temp, &ek, &sk);
+            univariate_less_than(&evaluator, order, &sum_sell_orders_temp, &ek, &sk); // passing sk just to keep check on noise not to decrypt the order
         let is_less_plain = evaluator.plaintext_decode(
             &evaluator.decrypt(&sk, &is_less_encrypted),
             Encoding::default(),
@@ -180,7 +180,7 @@ fn main() {
 
     for (index, order) in encrypted_sell_orders.iter().enumerate() {
         let is_less_encrypted =
-            univariate_less_than(&evaluator, order, &sum_buy_orders_temp, &ek, &sk);
+            univariate_less_than(&evaluator, order, &sum_buy_orders_temp, &ek, &sk); // passing sk just to keep check on noise not to decrypt the order
         let is_less_plain = evaluator.plaintext_decode(
             &evaluator.decrypt(&sk, &is_less_encrypted),
             Encoding::default(),
